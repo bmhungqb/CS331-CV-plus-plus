@@ -1,0 +1,7 @@
+/preprocess-distance-data/datasets/data
+/.conda
+/runs
+/venv
+/video_demo
+run_command.txt
+/weights

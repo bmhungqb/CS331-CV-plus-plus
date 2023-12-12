@@ -246,7 +246,7 @@ class ResNet(nn.Module):
 
         # Zero-initialize the last BN in each residual branch,
         # so that the residual branch starts with zeros, and each residual block behaves like an identity.
-        # This improves the tools by 0.2~0.3% according to https://arxiv.org/abs/1706.02677
+        # This improves the models by 0.2~0.3% according to https://arxiv.org/abs/1706.02677
         if zero_init_residual:
             for m in self.modules():
                 if isinstance(m, Bottleneck):
@@ -372,7 +372,7 @@ class ResNet(nn.Module):
 
 
 def init_pretrained_weights(model, model_url):
-    """Initializes tools with pretrained weights.
+    """Initializes models with pretrained weights.
     
     Layers that don't match with pretrained layers in name or size are kept unchanged.
     """

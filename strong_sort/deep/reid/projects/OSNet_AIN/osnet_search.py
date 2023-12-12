@@ -454,7 +454,7 @@ class OSNet(nn.Module):
         num_blocks = len(blocks)
         assert num_blocks == len(layers)
         assert num_blocks == len(channels) - 1
-        # no matter what loss is specified, the tools only returns the ID predictions
+        # no matter what loss is specified, the models only returns the ID predictions
         self.loss = loss
         self.feature_dim = feature_dim
 
@@ -579,6 +579,6 @@ def build_model(name, num_classes=100):
     avai_models = list(__NAS_models.keys())
     if name not in avai_models:
         raise KeyError(
-            'Unknown tools: {}. Must be one of {}'.format(name, avai_models)
+            'Unknown models: {}. Must be one of {}'.format(name, avai_models)
         )
     return __NAS_models[name](num_classes=num_classes)

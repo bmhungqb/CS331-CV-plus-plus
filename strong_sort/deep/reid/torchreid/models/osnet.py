@@ -439,7 +439,7 @@ class OSNet(nn.Module):
 
 
 def init_pretrained_weights(model, key=''):
-    """Initializes tools with pretrained weights.
+    """Initializes models with pretrained weights.
     
     Layers that don't match with pretrained layers in name or size are kept unchanged.
     """

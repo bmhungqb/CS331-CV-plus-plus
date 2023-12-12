@@ -5,7 +5,7 @@ __model_types = [
 
 __trained_urls = {
 
-    # market1501 tools ########################################################
+    # market1501 models ########################################################
     'resnet50_market1501.pt':
     'https://drive.google.com/uc?id=1dUUZ4rHDWohmsQXCRe2C_HbYkzz94iBV',
     'resnet50_dukemtmcreid.pt':
@@ -76,7 +76,7 @@ __trained_urls = {
     'osnet_x0_25_msmt17.pt':
     'https://drive.google.com/uc?id=1sSwXSUlj4_tHZequ_iZ8w_Jh0VaRQMqF',
 
-    ####### market1501 tools ##################################################
+    ####### market1501 models ##################################################
     'resnet50_msmt17.pt':
     'https://drive.google.com/uc?id=1yiBteqgIZoOeywE8AhGmEQl7FTVwrQmf',
     'osnet_x1_0_msmt17.pt':
@@ -96,7 +96,7 @@ __trained_urls = {
 
 
 def show_downloadeable_models():
-    print('\nAvailable ReID tools for automatic download')
+    print('\nAvailable ReID models for automatic download')
     print(list(__trained_urls.keys()))
 
 

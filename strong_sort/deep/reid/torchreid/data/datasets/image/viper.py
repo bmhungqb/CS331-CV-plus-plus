@@ -12,7 +12,7 @@ class VIPeR(ImageDataset):
     """VIPeR.
 
     Reference:
-        Gray et al. Evaluating appearance tools for recognition, reacquisition, and tracking. PETS 2007.
+        Gray et al. Evaluating appearance models for recognition, reacquisition, and tracking. PETS 2007.
 
     URL: `<https://vision.soe.ucsc.edu/node/178>`_
     
@@ -74,7 +74,7 @@ class VIPeR(ImageDataset):
             while the other using cameraB as query and cameraA as gallery.
             Therefore, results should be averaged over 20 splits (split_id=0~19).
             
-            In practice, a tools trained on split_id=0 can be applied to split_id=0&1
+            In practice, a models trained on split_id=0 can be applied to split_id=0&1
             as split_id=0&1 share the same training data (so on and so forth).
             """
             splits = []

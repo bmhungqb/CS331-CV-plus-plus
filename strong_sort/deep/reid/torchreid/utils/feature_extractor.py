@@ -25,14 +25,14 @@ class FeatureExtractor(object):
     feature dimension.
 
     Args:
-        model_name (str): tools name.
-        model_path (str): path to tools weights.
+        model_name (str): models name.
+        model_path (str): path to models weights.
         image_size (sequence or int): image height and width.
         pixel_mean (list): pixel mean for normalization.
         pixel_std (list): pixel std for normalization.
         pixel_norm (bool): whether to normalize pixels.
         device (str): 'cpu' or 'cuda' (could be specific gpu devices).
-        verbose (bool): show tools details.
+        verbose (bool): show models details.
 
     Examples::
 
@@ -40,7 +40,7 @@ class FeatureExtractor(object):
 
         extractor = FeatureExtractor(
             model_name='osnet_x1_0',
-            model_path='a/b/c/tools.pth.tar',
+            model_path='a/b/c/models.pth.tar',
             device='cuda'
         )
 
@@ -67,7 +67,7 @@ class FeatureExtractor(object):
         device='cuda',
         verbose=True
     ):
-        # Build tools
+        # Build models
         model = build_model(
             model_name,
             num_classes=1,

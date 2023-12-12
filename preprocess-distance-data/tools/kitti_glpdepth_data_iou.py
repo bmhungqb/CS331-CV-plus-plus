@@ -124,7 +124,7 @@ glp_kitti_preprocessing_data = pd.concat([glp_kitti_preprocessing_data, depth_in
 # IOU function with BBOX (real)
 ind = []
 for filename in tqdm(glp_kitti_preprocessing_data['filename'].unique()):
-    # GLPdepth tools
+    # GLPdepth models
     img = Image.open(os.path.join('preprocess-distance-data/datasets/data/image/train/', filename))
     img_shape = cv2.imread(os.path.join('preprocess-distance-data/datasets/data/image/train/', filename)).shape
     prediction = GLPdepth.predict(img, img_shape)

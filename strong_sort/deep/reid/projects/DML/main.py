@@ -86,7 +86,7 @@ def main():
 
     datamanager = torchreid.data.ImageDataManager(**imagedata_kwargs(cfg))
 
-    print('Building tools-1: {}'.format(cfg.model.name))
+    print('Building models-1: {}'.format(cfg.model.name))
     model1 = torchreid.models.build_model(
         name=cfg.model.name,
         num_classes=datamanager.num_train_pids,
@@ -99,7 +99,7 @@ def main():
     )
     print('Model complexity: params={:,} flops={:,}'.format(num_params, flops))
 
-    print('Copying tools-1 to tools-2')
+    print('Copying models-1 to models-2')
     model2 = copy.deepcopy(model1)
 
     if cfg.model.load_weights1 and check_isfile(cfg.model.load_weights1):

@@ -17,7 +17,7 @@ log/
     ...
 
 You can run the following command in your terminal to get the average performance:
-$ python tools/parse_test_res.py log/eval_viper
+$ python models/parse_test_res.py log/eval_viper
 """
 import os
 import re

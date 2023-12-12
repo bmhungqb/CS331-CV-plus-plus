@@ -9,7 +9,7 @@ from ..dataset import ImageDataset
 class CUHKSYSU(ImageDataset):
     """CUHKSYSU.
 
-    This dataset can only be used for tools training.
+    This dataset can only be used for models training.
 
     Reference:
         Xiao et al. End-to-end deep learning for person search.

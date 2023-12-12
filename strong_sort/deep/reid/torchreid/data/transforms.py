@@ -243,7 +243,7 @@ def build_transforms(
     Args:
         height (int): target image height.
         width (int): target image width.
-        transforms (str or list of str, optional): transformations applied to tools training.
+        transforms (str or list of str, optional): transformations applied to models training.
             Default is 'random_flip'.
         norm_mean (list or None, optional): normalization mean values. Default is ImageNet means.
         norm_std (list or None, optional): normalization standard deviation values. Default is

@@ -205,14 +205,14 @@ class ShuffleNetV2(nn.Module):
 
 
 def init_pretrained_weights(model, model_url):
-    """Initializes tools with pretrained weights.
+    """Initializes models with pretrained weights.
     
     Layers that don't match with pretrained layers in name or size are kept unchanged.
     """
     if model_url is None:
         import warnings
         warnings.warn(
-            'ImageNet pretrained weights are unavailable for this tools'
+            'ImageNet pretrained weights are unavailable for this models'
         )
         return
     pretrain_dict = model_zoo.load_url(model_url)

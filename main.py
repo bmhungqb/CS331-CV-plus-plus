@@ -3,9 +3,8 @@ Date: 12/10/2023
 @author: bmhungqb
 """
 import argparse
-import os
 import pickle
-
+import os
 from pathlib import Path
 import pandas as pd
 from collections import Counter
@@ -20,12 +19,12 @@ from yolov5.utils.general import (LOGGER, check_img_size, non_max_suppression, s
                                       check_file)
 from yolov5.utils.torch_utils import select_device, time_sync
 from yolov5.utils.plots import Annotator, colors, save_one_box
+from yolov5.models.common import DetectMultiBackend
 from strong_sort.utils.parser import get_config
 from strong_sort.strong_sort import StrongSORT
-from tools.glpdepth import GLP
-from tools.lstm import LSTM
-from tools.extract_features_depth_map import ExtractFeature
-from yolov5.models.common import DetectMultiBackend
+from models.glpdepth import GLP
+from models.lstm import LSTM
+from models.extract_features_depth_map import ExtractFeature
 # limit the number of cpus used by high performance libraries
 os.environ["OMP_NUM_THREADS"] = "1"
 os.environ["OPENBLAS_NUM_THREADS"] = "1"
@@ -40,11 +39,11 @@ WEIGHTS = ROOT + '/weights'
 def run(
         glp_depth_weights = 'vinvino02/glpn-kitti',
         type_distance_predictor = 'lstm',
-        distance_estimate_weights= WEIGHTS + 'lstm_10f.pth',
-        scaler_distance_estimate= WEIGHTS + '/lstm_scaler_10f.pkl',
+        distance_estimate_weights= WEIGHTS + 'lstm_model.pth',
+        scaler_distance_estimate= WEIGHTS + '/lstm_scaler.pkl',
         source='0',
-        yolo_weights= WEIGHTS + '/yolov5x.pt',  # tools.pt path(s),
-        strong_sort_weights= WEIGHTS + '/osnet_x0_25_msmt17.pt',  # tools.pt path,
+        yolo_weights= WEIGHTS + '/yolov5x.pt',  # models.pt path(s),
+        strong_sort_weights= WEIGHTS + '/osnet_x0_25_msmt17.pt',  # models.pt path,
         config_strongsort= ROOT + '/strong_sort/configs/strong_sort.yaml',
         imgsz=(375, 1242),  # inference size (height, width)
         conf_thres=0.25,  # confidence threshold
@@ -61,7 +60,7 @@ def run(
         agnostic_nms=False,  # class-agnostic NMS
         augment=False,  # augmented inference
         visualize=False,  # visualize features
-        update=False,  # update all tools
+        update=False,  # update all models
         project=ROOT + '/runs/track',  # save results to project/name
         name='exp',  # save results to project/name
         exist_ok=False,  # existing project/name ok, do not increment
@@ -84,11 +83,11 @@ def run(
         source = check_file(source)  # download
 
     # Directories
-    if not isinstance(yolo_weights, list):  # single yolo tools
+    if not isinstance(yolo_weights, list):  # single yolo models
         exp_name = yolo_weights
-    elif type(yolo_weights) is list and len(yolo_weights) == 1:  # single tools after --yolo_weights
+    elif type(yolo_weights) is list and len(yolo_weights) == 1:  # single models after --yolo_weights
         exp_name = Path(yolo_weights[0]).stem
-    else:  # multiple tools after --yolo_weights
+    else:  # multiple models after --yolo_weights
         exp_name = 'ensemble'
     exp_name = name if name else exp_name + "_" + strong_sort_weights.stem
     save_dir = increment_path(Path(project) / exp_name, exist_ok=exist_ok)  # increment run
@@ -99,11 +98,11 @@ def run(
     # LOAD MODEL YOLOv5
     model_detect = DetectMultiBackend(yolo_weights, device=device, dnn=dnn, data=None, fp16=half)
     stride, names, pt = model_detect.stride, model_detect.names, model_detect.pt
-    print('*DONE-Load tools yolov5*')
+    print('*DONE-Load models yolov5*')
 
     # LOAD MODEL GLPdepth
     model_depth = GLP(glp_depth_weights)
-    print('*DONE-Load tools GLPdepth*')
+    print('*DONE-Load models GLPdepth*')
 
     # LOAD MODEL DISTANCE PREDICTOR
     if type_distance_predictor == 'lstm':
@@ -368,16 +367,16 @@ def run(
         s = f"\n{len(list(save_dir.glob('tracks/*.txt')))} tracks saved to {save_dir / 'tracks'}" if save_txt else ''
         LOGGER.info(f"Results saved to {colorstr('bold', save_dir)}{s}")
     if update:
-        strip_optimizer(yolo_weights)  # update tools (to fix SourceChangeWarning)
+        strip_optimizer(yolo_weights)  # update models (to fix SourceChangeWarning)
 
 
 def parse_opt():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--glp-depth-weights', type=str, default='vinvino02/glpn-kitti', help='tools.bin path')
+    parser.add_argument('--glp-depth-weights', type=str, default='vinvino02/glpn-kitti', help='models.bin path')
     parser.add_argument('--type-distance-predictor', type=str, default='lstm', help='lstm')
-    parser.add_argument('--distance-estimate-weights', type=str, default=WEIGHTS + '/lstm_10f.pth', help='tools.pth path(s)')
-    parser.add_argument('--scaler-distance-estimate', type=str, default=WEIGHTS + '/lstm_scaler_10f.pkl', help='scaler path')
-    parser.add_argument('--yolo-weights', nargs='+', type=str, default=WEIGHTS + '/yolov5x.pt', help='tools.pt path(s)')
+    parser.add_argument('--distance-estimate-weights', type=str, default=WEIGHTS + '/lstm_model.pth', help='models.pth path(s)')
+    parser.add_argument('--scaler-distance-estimate', type=str, default=WEIGHTS + '/lstm_scaler.pkl', help='scaler path')
+    parser.add_argument('--yolo-weights', nargs='+', type=str, default=WEIGHTS + '/yolov5x.pt', help='models.pt path(s)')
     parser.add_argument('--strong-sort-weights', type=str, default=WEIGHTS + '/osnet_x0_25_msmt17.pth')
     parser.add_argument('--config-strongsort', type=str, default='strong_sort/configs/strong_sort.yaml')
     parser.add_argument('--source', type=str, default='0', help='file/dir/URL/glob, 0 for webcam')
@@ -398,7 +397,7 @@ def parse_opt():
     parser.add_argument('--agnostic-nms', action='store_true', help='class-agnostic NMS')
     parser.add_argument('--augment', action='store_true', help='augmented inference')
     parser.add_argument('--visualize', action='store_true', help='visualize features')
-    parser.add_argument('--update', action='store_true', help='update all tools')
+    parser.add_argument('--update', action='store_true', help='update all models')
     parser.add_argument('--project', default=ROOT + '/runs/track', help='save results to project/name')
     parser.add_argument('--name', default='exp', help='save results to project/name')
     parser.add_argument('--exist-ok', action='store_true', help='existing project/name ok, do not increment')

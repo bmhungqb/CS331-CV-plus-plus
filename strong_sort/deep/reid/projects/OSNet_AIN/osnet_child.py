@@ -530,6 +530,6 @@ def build_model(name, num_classes=100):
     avai_models = list(__models.keys())
     if name not in avai_models:
         raise KeyError(
-            'Unknown tools: {}. Must be one of {}'.format(name, avai_models)
+            'Unknown models: {}. Must be one of {}'.format(name, avai_models)
         )
     return __models[name](num_classes=num_classes)

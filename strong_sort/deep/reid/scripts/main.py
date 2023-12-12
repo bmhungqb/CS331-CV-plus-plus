@@ -151,7 +151,7 @@ def main():
 
     datamanager = build_datamanager(cfg)
 
-    print('Building tools: {}'.format(cfg.model.name))
+    print('Building models: {}'.format(cfg.model.name))
     model = torchreid.models.build_model(
         name=cfg.model.name,
         num_classes=datamanager.num_train_pids,

@@ -23,7 +23,7 @@ from .shufflenetv2 import *
 from .inceptionresnetv2 import *
 
 __model_factory = {
-    # image classification tools
+    # image classification models
     'resnet18': resnet18,
     'resnet34': resnet34,
     'resnet50': resnet50,
@@ -47,7 +47,7 @@ __model_factory = {
     'xception': xception,
     'resnet50_ibn_a': resnet50_ibn_a,
     'resnet50_ibn_b': resnet50_ibn_b,
-    # lightweight tools
+    # lightweight models
     'nasnsetmobile': nasnetamobile,
     'mobilenetv2_x1_0': mobilenetv2_x1_0,
     'mobilenetv2_x1_4': mobilenetv2_x1_4,
@@ -59,7 +59,7 @@ __model_factory = {
     'shufflenet_v2_x1_0': shufflenet_v2_x1_0,
     'shufflenet_v2_x1_5': shufflenet_v2_x1_5,
     'shufflenet_v2_x2_0': shufflenet_v2_x2_0,
-    # reid-specific tools
+    # reid-specific models
     'mudeep': MuDeep,
     'resnet50mid': resnet50mid,
     'hacnn': HACNN,
@@ -79,11 +79,11 @@ __model_factory = {
 
 
 def show_avai_models():
-    """Displays available tools.
+    """Displays available models.
 
     Examples::
-        >>> from torchreid import tools
-        >>> tools.show_avai_models()
+        >>> from torchreid import models
+        >>> models.show_avai_models()
     """
     print(list(__model_factory.keys()))
 
@@ -91,12 +91,12 @@ def show_avai_models():
 def build_model(
     name, num_classes, loss='softmax', pretrained=True, use_gpu=True
 ):
-    """A function wrapper for building a tools.
+    """A function wrapper for building a models.
 
     Args:
-        name (str): tools name.
+        name (str): models name.
         num_classes (int): number of training identities.
-        loss (str, optional): loss function to optimize the tools. Currently
+        loss (str, optional): loss function to optimize the models. Currently
             supports "softmax" and "triplet". Default is "softmax".
         pretrained (bool, optional): whether to load ImageNet-pretrained weights.
             Default is True.
@@ -106,13 +106,13 @@ def build_model(
         nn.Module
 
     Examples::
-        >>> from torchreid import tools
-        >>> tools = tools.build_model('resnet50', 751, loss='softmax')
+        >>> from torchreid import models
+        >>> models = models.build_model('resnet50', 751, loss='softmax')
     """
     avai_models = list(__model_factory.keys())
     if name not in avai_models:
         raise KeyError(
-            'Unknown tools: {}. Must be one of {}'.format(name, avai_models)
+            'Unknown models: {}. Must be one of {}'.format(name, avai_models)
         )
     return __model_factory[name](
         num_classes=num_classes,

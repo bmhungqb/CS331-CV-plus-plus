@@ -26,13 +26,13 @@ def save_checkpoint(
         state (dict): dictionary.
         save_dir (str): directory to save checkpoint.
         is_best (bool, optional): if True, this checkpoint will be copied and named
-            ``tools-best.pth.tar``. Default is False.
+            ``models-best.pth.tar``. Default is False.
         remove_module_from_keys (bool, optional): whether to remove "module."
             from layer names. Default is False.
 
     Examples::
         >>> state = {
-        >>>     'state_dict': tools.state_dict(),
+        >>>     'state_dict': models.state_dict(),
         >>>     'epoch': 10,
         >>>     'rank1': 0.5,
         >>>     'optimizer': optimizer.state_dict()
@@ -51,11 +51,11 @@ def save_checkpoint(
         state['state_dict'] = new_state_dict
     # save
     epoch = state['epoch']
-    fpath = osp.join(save_dir, 'tools.pth.tar-' + str(epoch))
+    fpath = osp.join(save_dir, 'models.pth.tar-' + str(epoch))
     torch.save(state, fpath)
     print('Checkpoint saved to "{}"'.format(fpath))
     if is_best:
-        shutil.copy(fpath, osp.join(osp.dirname(fpath), 'tools-best.pth.tar'))
+        shutil.copy(fpath, osp.join(osp.dirname(fpath), 'models-best.pth.tar'))
 
 
 def load_checkpoint(fpath):
@@ -72,7 +72,7 @@ def load_checkpoint(fpath):
 
     Examples::
         >>> from torchreid.utils import load_checkpoint
-        >>> fpath = 'log/my_model/tools.pth.tar-10'
+        >>> fpath = 'log/my_model/models.pth.tar-10'
         >>> checkpoint = load_checkpoint(fpath)
     """
     if fpath is None:
@@ -98,12 +98,12 @@ def load_checkpoint(fpath):
 def resume_from_checkpoint(fpath, model, optimizer=None, scheduler=None):
     r"""Resumes training from a checkpoint.
 
-    This will load (1) tools weights and (2) ``state_dict``
+    This will load (1) models weights and (2) ``state_dict``
     of optimizer if ``optimizer`` is not None.
 
     Args:
         fpath (str): path to checkpoint.
-        model (nn.Module): tools.
+        model (nn.Module): models.
         optimizer (Optimizer, optional): an Optimizer.
         scheduler (LRScheduler, optional): an LRScheduler.
 
@@ -112,15 +112,15 @@ def resume_from_checkpoint(fpath, model, optimizer=None, scheduler=None):
 
     Examples::
         >>> from torchreid.utils import resume_from_checkpoint
-        >>> fpath = 'log/my_model/tools.pth.tar-10'
+        >>> fpath = 'log/my_model/models.pth.tar-10'
         >>> start_epoch = resume_from_checkpoint(
-        >>>     fpath, tools, optimizer, scheduler
+        >>>     fpath, models, optimizer, scheduler
         >>> )
     """
     print('Loading checkpoint from "{}"'.format(fpath))
     checkpoint = load_checkpoint(fpath)
     model.load_state_dict(checkpoint['state_dict'])
-    print('Loaded tools weights')
+    print('Loaded models weights')
     if optimizer is not None and 'optimizer' in checkpoint.keys():
         optimizer.load_state_dict(checkpoint['optimizer'])
         print('Loaded optimizer')
@@ -170,11 +170,11 @@ def set_bn_to_eval(m):
 
 
 def open_all_layers(model):
-    r"""Opens all layers in tools for training.
+    r"""Opens all layers in models for training.
 
     Examples::
         >>> from torchreid.utils import open_all_layers
-        >>> open_all_layers(tools)
+        >>> open_all_layers(models)
     """
     model.train()
     for p in model.parameters():
@@ -182,21 +182,21 @@ def open_all_layers(model):
 
 
 def open_specified_layers(model, open_layers):
-    r"""Opens specified layers in tools for training while keeping
+    r"""Opens specified layers in models for training while keeping
     other layers frozen.
 
     Args:
-        model (nn.Module): neural net tools.
+        model (nn.Module): neural net models.
         open_layers (str or list): layers open for training.
 
     Examples::
         >>> from torchreid.utils import open_specified_layers
-        >>> # Only tools.classifier will be updated.
+        >>> # Only models.classifier will be updated.
         >>> open_layers = 'classifier'
-        >>> open_specified_layers(tools, open_layers)
-        >>> # Only tools.fc and tools.classifier will be updated.
+        >>> open_specified_layers(models, open_layers)
+        >>> # Only models.fc and models.classifier will be updated.
         >>> open_layers = ['fc', 'classifier']
-        >>> open_specified_layers(tools, open_layers)
+        >>> open_specified_layers(models, open_layers)
     """
     if isinstance(model, nn.DataParallel):
         model = model.module
@@ -207,7 +207,7 @@ def open_specified_layers(model, open_layers):
     for layer in open_layers:
         assert hasattr(
             model, layer
-        ), '"{}" is not an attribute of the tools, please provide the correct name'.format(
+        ), '"{}" is not an attribute of the models, please provide the correct name'.format(
             layer
         )
 
@@ -223,14 +223,14 @@ def open_specified_layers(model, open_layers):
 
 
 def count_num_param(model):
-    r"""Counts number of parameters in a tools while ignoring ``self.classifier``.
+    r"""Counts number of parameters in a models while ignoring ``self.classifier``.
 
     Args:
-        model (nn.Module): network tools.
+        model (nn.Module): network models.
 
     Examples::
         >>> from torchreid.utils import count_num_param
-        >>> model_size = count_num_param(tools)
+        >>> model_size = count_num_param(models)
 
     .. warning::
         
@@ -255,20 +255,20 @@ def count_num_param(model):
 
 
 def load_pretrained_weights(model, weight_path):
-    r"""Loads pretrianed weights to tools.
+    r"""Loads pretrianed weights to models.
 
     Features::
         - Incompatible layers (unmatched in name or size) will be ignored.
         - Can automatically deal with keys containing "module.".
 
     Args:
-        model (nn.Module): network tools.
+        model (nn.Module): network models.
         weight_path (str): path to pretrained weights.
 
     Examples::
         >>> from torchreid.utils import load_pretrained_weights
-        >>> weight_path = 'log/my_model/tools-best.pth.tar'
-        >>> load_pretrained_weights(tools, weight_path)
+        >>> weight_path = 'log/my_model/models-best.pth.tar'
+        >>> load_pretrained_weights(models, weight_path)
     """
     checkpoint = load_checkpoint(weight_path)
     if 'state_dict' in checkpoint:

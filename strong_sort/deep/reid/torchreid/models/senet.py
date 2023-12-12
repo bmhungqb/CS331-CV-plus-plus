@@ -281,41 +281,41 @@ class SENet(nn.Module):
         ----------
         block (nn.Module): Bottleneck class.
             - For SENet154: SEBottleneck
-            - For SE-ResNet tools: SEResNetBottleneck
-            - For SE-ResNeXt tools:  SEResNeXtBottleneck
+            - For SE-ResNet models: SEResNetBottleneck
+            - For SE-ResNeXt models:  SEResNeXtBottleneck
         layers (list of ints): Number of residual blocks for 4 layers of the
             network (layer1...layer4).
         groups (int): Number of groups for the 3x3 convolution in each
             bottleneck block.
             - For SENet154: 64
-            - For SE-ResNet tools: 1
-            - For SE-ResNeXt tools:  32
+            - For SE-ResNet models: 1
+            - For SE-ResNeXt models:  32
         reduction (int): Reduction ratio for Squeeze-and-Excitation modules.
-            - For all tools: 16
+            - For all models: 16
         dropout_p (float or None): Drop probability for the Dropout layer.
             If `None` the Dropout layer is not used.
             - For SENet154: 0.2
-            - For SE-ResNet tools: None
-            - For SE-ResNeXt tools: None
+            - For SE-ResNet models: None
+            - For SE-ResNeXt models: None
         inplanes (int):  Number of input channels for layer1.
             - For SENet154: 128
-            - For SE-ResNet tools: 64
-            - For SE-ResNeXt tools: 64
+            - For SE-ResNet models: 64
+            - For SE-ResNeXt models: 64
         input_3x3 (bool): If `True`, use three 3x3 convolutions instead of
             a single 7x7 convolution in layer0.
             - For SENet154: True
-            - For SE-ResNet tools: False
-            - For SE-ResNeXt tools: False
+            - For SE-ResNet models: False
+            - For SE-ResNeXt models: False
         downsample_kernel_size (int): Kernel size for downsampling convolutions
             in layer2, layer3 and layer4.
             - For SENet154: 3
-            - For SE-ResNet tools: 1
-            - For SE-ResNeXt tools: 1
+            - For SE-ResNet models: 1
+            - For SE-ResNeXt models: 1
         downsample_padding (int): Padding for downsampling convolutions in
             layer2, layer3 and layer4.
             - For SENet154: 1
-            - For SE-ResNet tools: 0
-            - For SE-ResNeXt tools: 0
+            - For SE-ResNet models: 0
+            - For SE-ResNeXt models: 0
         num_classes (int): Number of outputs in `classifier` layer.
         """
         super(SENet, self).__init__()
@@ -512,7 +512,7 @@ class SENet(nn.Module):
 
 
 def init_pretrained_weights(model, model_url):
-    """Initializes tools with pretrained weights.
+    """Initializes models with pretrained weights.
     
     Layers that don't match with pretrained layers in name or size are kept unchanged.
     """

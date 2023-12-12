@@ -165,7 +165,7 @@ def init_parser():
     # Architecture
     # ************************************************************
     parser.add_argument(
-        '-a', '--arch', type=str, default='', help='tools architecture'
+        '-a', '--arch', type=str, default='', help='models architecture'
     )
     parser.add_argument(
         '--no-pretrained',
@@ -211,7 +211,7 @@ def init_parser():
         '--save-dir',
         type=str,
         default='log',
-        help='path to save log and tools weights'
+        help='path to save log and models weights'
     )
     parser.add_argument('--use-cpu', action='store_true', help='use cpu')
 

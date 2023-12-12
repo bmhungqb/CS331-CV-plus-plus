@@ -64,9 +64,9 @@ def visactmap(
 
             if outputs.dim() != 4:
                 raise ValueError(
-                    'The tools output is supposed to have '
+                    'The models output is supposed to have '
                     'shape of (b, c, h, w), i.e. 4 dimensions, but got {} dimensions. '
-                    'Please make sure you set the tools output at eval mode '
+                    'Please make sure you set the models output at eval mode '
                     'to be the last convolutional feature maps'.format(
                         outputs.dim()
                     )
@@ -131,7 +131,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--root', type=str)
     parser.add_argument('-d', '--dataset', type=str, default='market1501')
-    parser.add_argument('-m', '--tools', type=str, default='osnet_x1_0')
+    parser.add_argument('-m', '--models', type=str, default='osnet_x1_0')
     parser.add_argument('--weights', type=str)
     parser.add_argument('--save-dir', type=str, default='log')
     parser.add_argument('--height', type=int, default=256)

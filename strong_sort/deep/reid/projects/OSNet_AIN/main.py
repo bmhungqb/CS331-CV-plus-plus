@@ -95,7 +95,7 @@ def main():
 
     datamanager = torchreid.data.ImageDataManager(**imagedata_kwargs(cfg))
 
-    print('Building tools: {}'.format(cfg.model.name))
+    print('Building models: {}'.format(cfg.model.name))
     model = osnet_models.build_model(
         cfg.model.name, num_classes=datamanager.num_train_pids
     )

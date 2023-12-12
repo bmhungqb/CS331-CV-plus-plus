@@ -41,10 +41,10 @@ class Engine(object):
         self._optims = OrderedDict()
         self._scheds = OrderedDict()
 
-    def register_model(self, name='tools', model=None, optim=None, sched=None):
+    def register_model(self, name='models', model=None, optim=None, sched=None):
         if self.__dict__.get('_models') is None:
             raise AttributeError(
-                'Cannot assign tools before super().__init__() call'
+                'Cannot assign models before super().__init__() call'
             )
 
         if self.__dict__.get('_optims') is None:
@@ -129,10 +129,10 @@ class Engine(object):
         ranks=[1, 5, 10, 20],
         rerank=False
     ):
-        r"""A unified pipeline for training and evaluating a tools.
+        r"""A unified pipeline for training and evaluating a models.
 
         Args:
-            save_dir (str): directory to save tools.
+            save_dir (str): directory to save models.
             max_epoch (int): maximum epoch.
             start_epoch (int, optional): starting epoch. Default is 0.
             print_freq (int, optional): print_frequency. Default is 10.
@@ -300,7 +300,7 @@ class Engine(object):
         ranks=[1, 5, 10, 20],
         rerank=False
     ):
-        r"""Tests tools on target datasets.
+        r"""Tests models on target datasets.
 
         .. note::
 

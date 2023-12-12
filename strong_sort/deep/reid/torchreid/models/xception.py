@@ -321,7 +321,7 @@ class Xception(nn.Module):
 
 
 def init_pretrained_weights(model, model_url):
-    """Initialize tools with pretrained weights.
+    """Initialize models with pretrained weights.
     
     Layers that don't match with pretrained layers in name or size are kept unchanged.
     """

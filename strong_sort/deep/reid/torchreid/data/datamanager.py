@@ -15,7 +15,7 @@ class DataManager(object):
             it equals to ``sources``.
         height (int, optional): target image height. Default is 256.
         width (int, optional): target image width. Default is 128.
-        transforms (str or list of str, optional): transformations applied to tools training.
+        transforms (str or list of str, optional): transformations applied to models training.
             Default is 'random_flip'.
         norm_mean (list or None, optional): data mean. Default is None (use imagenet mean).
         norm_std (list or None, optional): data std. Default is None (use imagenet std).
@@ -96,7 +96,7 @@ class ImageDataManager(DataManager):
             it equals to ``sources``.
         height (int, optional): target image height. Default is 256.
         width (int, optional): target image width. Default is 128.
-        transforms (str or list of str, optional): transformations applied to tools training.
+        transforms (str or list of str, optional): transformations applied to models training.
             Default is 'random_flip'.
         k_tfm (int): number of times to apply augmentation to an image
             independently. If k_tfm > 1, the transform function will be
@@ -357,7 +357,7 @@ class VideoDataManager(DataManager):
             it equals to ``sources``.
         height (int, optional): target image height. Default is 256.
         width (int, optional): target image width. Default is 128.
-        transforms (str or list of str, optional): transformations applied to tools training.
+        transforms (str or list of str, optional): transformations applied to models training.
             Default is 'random_flip'.
         norm_mean (list or None, optional): data mean. Default is None (use imagenet mean).
         norm_std (list or None, optional): data std. Default is None (use imagenet std).

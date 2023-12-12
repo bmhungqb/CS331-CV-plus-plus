@@ -171,7 +171,7 @@ class ShuffleNet(nn.Module):
 
 
 def init_pretrained_weights(model, model_url):
-    """Initializes tools with pretrained weights.
+    """Initializes models with pretrained weights.
     
     Layers that don't match with pretrained layers in name or size are kept unchanged.
     """
@@ -189,7 +189,7 @@ def init_pretrained_weights(model, model_url):
 def shufflenet(num_classes, loss='softmax', pretrained=True, **kwargs):
     model = ShuffleNet(num_classes, loss, **kwargs)
     if pretrained:
-        # init_pretrained_weights(tools, model_urls['imagenet'])
+        # init_pretrained_weights(models, model_urls['imagenet'])
         import warnings
         warnings.warn(
             'The imagenet pretrained weights need to be manually downloaded from {}'

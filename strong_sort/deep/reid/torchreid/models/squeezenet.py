@@ -49,7 +49,7 @@ class SqueezeNet(nn.Module):
 
     Reference:
         Iandola et al. SqueezeNet: AlexNet-level accuracy with 50x fewer parameters
-        and< 0.5 MB tools size. arXiv:1602.07360.
+        and< 0.5 MB models size. arXiv:1602.07360.
 
     Public keys:
         - ``squeezenet1_0``: SqueezeNet (version=1.0).
@@ -187,7 +187,7 @@ class SqueezeNet(nn.Module):
 
 
 def init_pretrained_weights(model, model_url):
-    """Initializes tools with pretrained weights.
+    """Initializes models with pretrained weights.
     
     Layers that don't match with pretrained layers in name or size are kept unchanged.
     """

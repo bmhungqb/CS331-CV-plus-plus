@@ -221,7 +221,7 @@ class MobileNetV2(nn.Module):
 
 
 def init_pretrained_weights(model, model_url):
-    """Initializes tools with pretrained weights.
+    """Initializes models with pretrained weights.
     
     Layers that don't match with pretrained layers in name or size are kept unchanged.
     """
@@ -246,7 +246,7 @@ def mobilenetv2_x1_0(num_classes, loss, pretrained=True, **kwargs):
         **kwargs
     )
     if pretrained:
-        # init_pretrained_weights(tools, model_urls['mobilenetv2_x1_0'])
+        # init_pretrained_weights(models, model_urls['mobilenetv2_x1_0'])
         import warnings
         warnings.warn(
             'The imagenet pretrained weights need to be manually downloaded from {}'
@@ -265,7 +265,7 @@ def mobilenetv2_x1_4(num_classes, loss, pretrained=True, **kwargs):
         **kwargs
     )
     if pretrained:
-        # init_pretrained_weights(tools, model_urls['mobilenetv2_x1_4'])
+        # init_pretrained_weights(models, model_urls['mobilenetv2_x1_4'])
         import warnings
         warnings.warn(
             'The imagenet pretrained weights need to be manually downloaded from {}'

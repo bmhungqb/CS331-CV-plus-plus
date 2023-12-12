@@ -4,11 +4,11 @@ from yacs.config import CfgNode as CN
 def get_default_config():
     cfg = CN()
 
-    # tools
+    # models
     cfg.model = CN()
     cfg.model.name = 'resnet50'
-    cfg.model.pretrained = True # automatically load pretrained tools weights if available
-    cfg.model.load_weights = '' # path to tools weights
+    cfg.model.pretrained = True # automatically load pretrained models weights if available
+    cfg.model.load_weights = '' # path to models weights
     cfg.model.resume = '' # path to checkpoint for resume training
 
     # data

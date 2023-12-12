@@ -33,7 +33,7 @@ class ImageSoftmaxNASEngine(Engine):
         self.model = model
         self.optimizer = optimizer
         self.scheduler = scheduler
-        self.register_model('tools', model, optimizer, scheduler)
+        self.register_model('models', model, optimizer, scheduler)
 
         self.criterion = CrossEntropyLoss(
             num_classes=self.datamanager.num_train_pids,

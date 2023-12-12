@@ -10,7 +10,7 @@ class VideoSoftmaxEngine(ImageSoftmaxEngine):
     Args:
         datamanager (DataManager): an instance of ``torchreid.data.ImageDataManager``
             or ``torchreid.data.VideoDataManager``.
-        model (nn.Module): tools instance.
+        model (nn.Module): models instance.
         optimizer (Optimizer): an Optimizer.
         scheduler (LRScheduler, optional): if None, no learning rate decay will be performed.
         use_gpu (bool, optional): use gpu. Default is True.
@@ -32,14 +32,14 @@ class VideoSoftmaxEngine(ImageSoftmaxEngine):
             batch_size=8, # number of tracklets
             seq_len=15 # number of images in each tracklet
         )
-        tools = torchreid.tools.build_model(
+        models = torchreid.models.build_model(
             name='resnet50',
             num_classes=datamanager.num_train_pids,
             loss='softmax'
         )
-        tools = tools.cuda()
+        models = models.cuda()
         optimizer = torchreid.optim.build_optimizer(
-            tools, optim='adam', lr=0.0003
+            models, optim='adam', lr=0.0003
         )
         scheduler = torchreid.optim.build_lr_scheduler(
             optimizer,
@@ -47,7 +47,7 @@ class VideoSoftmaxEngine(ImageSoftmaxEngine):
             stepsize=20
         )
         engine = torchreid.engine.VideoSoftmaxEngine(
-            datamanager, tools, optimizer, scheduler=scheduler,
+            datamanager, models, optimizer, scheduler=scheduler,
             pooling_method='avg'
         )
         engine.run(

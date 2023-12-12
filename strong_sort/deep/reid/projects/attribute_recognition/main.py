@@ -20,7 +20,7 @@ from torchreid.data.transforms import (
     RandomHorizontalFlip
 )
 
-import tools
+import models
 import datasets
 from default_parser import init_parser, optimizer_kwargs, lr_scheduler_kwargs
 
@@ -147,8 +147,8 @@ def main():
         print('Use plain binary cross entropy')
         criterion = nn.BCEWithLogitsLoss()
 
-    print('Building tools: {}'.format(args.arch))
-    model = tools.build_model(
+    print('Building models: {}'.format(args.arch))
+    model = models.build_model(
         args.arch,
         num_attrs,
         pretrained=not args.no_pretrained,

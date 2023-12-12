@@ -10,7 +10,7 @@ class VideoTripletEngine(ImageTripletEngine):
     Args:
         datamanager (DataManager): an instance of ``torchreid.data.ImageDataManager``
             or ``torchreid.data.VideoDataManager``.
-        model (nn.Module): tools instance.
+        model (nn.Module): models instance.
         optimizer (Optimizer): an Optimizer.
         margin (float, optional): margin for triplet loss. Default is 0.3.
         weight_t (float, optional): weight for triplet loss. Default is 1.
@@ -38,14 +38,14 @@ class VideoTripletEngine(ImageTripletEngine):
             batch_size=8, # number of tracklets
             seq_len=15 # number of images in each tracklet
         )
-        tools = torchreid.tools.build_model(
+        models = torchreid.models.build_model(
             name='resnet50',
             num_classes=datamanager.num_train_pids,
             loss='triplet'
         )
-        tools = tools.cuda()
+        models = models.cuda()
         optimizer = torchreid.optim.build_optimizer(
-            tools, optim='adam', lr=0.0003
+            models, optim='adam', lr=0.0003
         )
         scheduler = torchreid.optim.build_lr_scheduler(
             optimizer,
@@ -53,7 +53,7 @@ class VideoTripletEngine(ImageTripletEngine):
             stepsize=20
         )
         engine = torchreid.engine.VideoTripletEngine(
-            datamanager, tools, optimizer, margin=0.3,
+            datamanager, models, optimizer, margin=0.3,
             weight_t=0.7, weight_x=1, scheduler=scheduler,
             pooling_method='avg'
         )

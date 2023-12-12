@@ -272,7 +272,7 @@ def compute_model_complexity(
         how you construct the computations in ``forward()``.
 
     Args:
-        model (nn.Module): network tools.
+        model (nn.Module): network models.
         input_size (tuple): input size, e.g. (1, 3, 256, 128).
         verbose (bool, optional): shows detailed complexity of
             each module. Default is False.
@@ -281,9 +281,9 @@ def compute_model_complexity(
             If set to False, flops of all layers will be counted.
 
     Examples::
-        >>> from torchreid import tools, utils
-        >>> tools = tools.build_model(name='resnet50', num_classes=1000)
-        >>> num_params, flops = utils.compute_model_complexity(tools, (1, 3, 256, 128), verbose=True)
+        >>> from torchreid import models, utils
+        >>> models = models.build_model(name='resnet50', num_classes=1000)
+        >>> num_params, flops = utils.compute_model_complexity(models, (1, 3, 256, 128), verbose=True)
     """
     registered_handles = []
     layer_list = []

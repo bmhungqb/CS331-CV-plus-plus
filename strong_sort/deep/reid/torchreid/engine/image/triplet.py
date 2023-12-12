@@ -12,7 +12,7 @@ class ImageTripletEngine(Engine):
     Args:
         datamanager (DataManager): an instance of ``torchreid.data.ImageDataManager``
             or ``torchreid.data.VideoDataManager``.
-        model (nn.Module): tools instance.
+        model (nn.Module): models instance.
         optimizer (Optimizer): an Optimizer.
         margin (float, optional): margin for triplet loss. Default is 0.3.
         weight_t (float, optional): weight for triplet loss. Default is 1.
@@ -34,14 +34,14 @@ class ImageTripletEngine(Engine):
             num_instances=4,
             train_sampler='RandomIdentitySampler' # this is important
         )
-        tools = torchreid.tools.build_model(
+        models = torchreid.models.build_model(
             name='resnet50',
             num_classes=datamanager.num_train_pids,
             loss='triplet'
         )
-        tools = tools.cuda()
+        models = models.cuda()
         optimizer = torchreid.optim.build_optimizer(
-            tools, optim='adam', lr=0.0003
+            models, optim='adam', lr=0.0003
         )
         scheduler = torchreid.optim.build_lr_scheduler(
             optimizer,
@@ -49,7 +49,7 @@ class ImageTripletEngine(Engine):
             stepsize=20
         )
         engine = torchreid.engine.ImageTripletEngine(
-            datamanager, tools, optimizer, margin=0.3,
+            datamanager, models, optimizer, margin=0.3,
             weight_t=0.7, weight_x=1, scheduler=scheduler
         )
         engine.run(
@@ -76,7 +76,7 @@ class ImageTripletEngine(Engine):
         self.model = model
         self.optimizer = optimizer
         self.scheduler = scheduler
-        self.register_model('tools', model, optimizer, scheduler)
+        self.register_model('models', model, optimizer, scheduler)
 
         assert weight_t >= 0 and weight_x >= 0
         assert weight_t + weight_x > 0

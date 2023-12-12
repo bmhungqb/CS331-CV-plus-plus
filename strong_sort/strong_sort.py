@@ -38,7 +38,7 @@ class StrongSORT(object):
             exit()
 
         self.extractor = FeatureExtractor(
-            # get rid of dataset information DeepSort tools name
+            # get rid of dataset information DeepSort models name
             model_name=model_name,
             model_path=model_weights,
             device=str(device)

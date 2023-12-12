@@ -26,7 +26,7 @@ def build_optimizer(
     """A function wrapper for building an optimizer.
 
     Args:
-        model (nn.Module): tools.
+        model (nn.Module): models.
         optim (str, optional): optimizer. Default is "adam".
         lr (float, optional): learning rate. Default is 0.0003.
         weight_decay (float, optional): weight decay (L2 penalty). Default is 5e-04.
@@ -41,17 +41,17 @@ def build_optimizer(
             identity classification layer. Enabling ``staged_lr`` can allow the base layers to
             be trained with a smaller learning rate determined by ``base_lr_mult``, while the new
             layers will take the ``lr``. Default is False.
-        new_layers (str or list): attribute names in ``tools``. Default is empty.
+        new_layers (str or list): attribute names in ``models``. Default is empty.
         base_lr_mult (float, optional): learning rate multiplier for base layers. Default is 0.1.
 
     Examples::
         >>> # A normal optimizer can be built by
-        >>> optimizer = torchreid.optim.build_optimizer(tools, optim='sgd', lr=0.01)
+        >>> optimizer = torchreid.optim.build_optimizer(models, optim='sgd', lr=0.01)
         >>> # If you want to use a smaller learning rate for pretrained layers
         >>> # and the attribute name for the randomly initialized layer is 'classifier',
         >>> # you can do
         >>> optimizer = torchreid.optim.build_optimizer(
-        >>>     tools, optim='sgd', lr=0.01, staged_lr=True,
+        >>>     models, optim='sgd', lr=0.01, staged_lr=True,
         >>>     new_layers='classifier', base_lr_mult=0.1
         >>> )
         >>> # Now the `classifier` has learning rate 0.01 but the base layers
@@ -59,7 +59,7 @@ def build_optimizer(
         >>> # new_layers can also take multiple attribute names. Say the new layers
         >>> # are 'fc' and 'classifier', you can do
         >>> optimizer = torchreid.optim.build_optimizer(
-        >>>     tools, optim='sgd', lr=0.01, staged_lr=True,
+        >>>     models, optim='sgd', lr=0.01, staged_lr=True,
         >>>     new_layers=['fc', 'classifier'], base_lr_mult=0.1
         >>> )
     """
@@ -72,7 +72,7 @@ def build_optimizer(
 
     if not isinstance(model, nn.Module):
         raise TypeError(
-            'tools given to build_optimizer must be an instance of nn.Module'
+            'models given to build_optimizer must be an instance of nn.Module'
         )
 
     if staged_lr:

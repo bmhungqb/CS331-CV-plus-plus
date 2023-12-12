@@ -5,69 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9549fb61-d834-4af9-8e00-d12a475f9bb2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/finalprojectCV++.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocess-distance-data/tools/kitti_glpdepth_data_iou.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess-distance-data/tools/kitti_glpdepth_data_iou.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/projects/DML/default_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/projects/DML/default_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/projects/DML/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/projects/DML/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/projects/OSNet_AIN/default_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/projects/OSNet_AIN/default_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/projects/OSNet_AIN/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/projects/OSNet_AIN/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/projects/OSNet_AIN/osnet_child.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/projects/OSNet_AIN/osnet_child.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/projects/OSNet_AIN/osnet_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/projects/OSNet_AIN/osnet_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/projects/OSNet_AIN/softmax_nas.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/projects/OSNet_AIN/softmax_nas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/projects/attribute_recognition/default_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/projects/attribute_recognition/default_parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/projects/attribute_recognition/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/projects/attribute_recognition/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/scripts/default_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/scripts/default_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/scripts/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/scripts/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/tools/parse_test_res.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/tools/parse_test_res.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/tools/visualize_actmap.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/tools/visualize_actmap.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/data/datamanager.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/data/datamanager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/data/datasets/image/cuhksysu.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/data/datasets/image/cuhksysu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/data/datasets/image/viper.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/data/datasets/image/viper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/data/transforms.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/data/transforms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/engine/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/engine/engine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/engine/image/softmax.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/engine/image/softmax.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/engine/image/triplet.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/engine/image/triplet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/engine/video/softmax.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/engine/video/softmax.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/engine/video/triplet.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/engine/video/triplet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/densenet.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/densenet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/inceptionv4.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/inceptionv4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/mlfn.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/mlfn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/mobilenetv2.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/mobilenetv2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/nasnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/nasnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/osnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/osnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/osnet_ain.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/osnet_ain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/pcb.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/pcb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/resnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/resnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/resnet_ibn_a.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/resnet_ibn_a.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/resnet_ibn_b.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/resnet_ibn_b.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/resnetmid.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/resnetmid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/senet.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/senet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/shufflenet.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/shufflenet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/shufflenetv2.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/shufflenetv2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/squeezenet.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/squeezenet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/xception.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/models/xception.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/optim/optimizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/optim/optimizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/utils/feature_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/utils/feature_extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/utils/model_complexity.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/utils/model_complexity.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/utils/torchtools.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid/torchreid/utils/torchtools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/deep/reid_model_factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/deep/reid_model_factory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/sort/kalman_filter.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/sort/kalman_filter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/sort/track.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/sort/track.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strong_sort/strong_sort.py" beforeDir="false" afterPath="$PROJECT_DIR$/strong_sort/strong_sort.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/extract_features_depth_map.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/extract_features_depth_map.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/glpdepth.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/glpdepth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/lstm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/extract_features_depth_map.py" beforeDir="false" afterPath="$PROJECT_DIR$/extract_features_depth_map.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/glpdepth.py" beforeDir="false" afterPath="$PROJECT_DIR$/glpdepth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/lstm.py" beforeDir="false" afterPath="$PROJECT_DIR$/lstm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -82,10 +38,18 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/bmhun/Documents/UIT/Year3/HKI/CS406_Xulyanhvaungdung/final_project",
+    "last_opened_file_path": "C:/Users/bmhun/Documents/UIT/Year3/HKI/CS331_CV++/FinalProject/finalprojectCV++",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\bmhun\Documents\UIT\Year3\HKI\CS331_CV++\FinalProject\finalprojectCV++" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bmhun\Documents\UIT\Year3\HKI\CS331_CV++\FinalProject\finalprojectCV++" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

@@ -8,7 +8,6 @@ references: https://github.com/vinvino02/GLPDepth
 
 import torch
 from transformers import GLPNForDepthEstimation, GLPNFeatureExtractor
-from transformers import AutoModel
 # class of GLP-depth
 class GLP():
     def __init__(self, pretrained):

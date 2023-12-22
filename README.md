@@ -23,8 +23,12 @@
 | ------ |:-------------:| ----------------------:|-------------------------:
 | 1      | 21522110      | Bùi Mạnh Hùng          |21522110@gm.uit.edu.vn   |
 ## ĐỒ ÁN MÔN HỌC
-<a name="doan">Theo dõi và ước tính khoảng cách đối tượng trong xe tự lái</a>
+
+### <a name="doan">**Theo dõi và ước tính khoảng cách đối tượng trong xe tự lái**</a>
+
+<img src="pipeline.png" alt="Pipepline">
 Những kỹ thuật chính sử dụng trong đồ án:
+
 + Phát hiện đối tượng: YOLOv5
 + Theo dõi đối tượng: StrongSORT
 + Ước tính khoảng cách: GLPDepth + LSTM

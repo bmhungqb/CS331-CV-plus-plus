@@ -32,3 +32,5 @@ Những kỹ thuật chính sử dụng trong đồ án:
 + Phát hiện đối tượng: YOLOv5
 + Theo dõi đối tượng: StrongSORT
 + Ước tính khoảng cách: GLPDepth + LSTM
+### Demo
+<a href="demo/result.mp4"></a>

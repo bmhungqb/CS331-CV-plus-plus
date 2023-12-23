@@ -33,5 +33,9 @@ Những kỹ thuật chính sử dụng trong đồ án:
 + Theo dõi đối tượng: StrongSORT
 + Ước tính khoảng cách: GLPDepth + LSTM
 ### Demo
-https://github.com/bmhungqb/CS331-CV-plus-plus/assets/117832185/646567fc-e23b-426a-bcf4-204dc3b2ea85
+
+
+https://github.com/bmhungqb/CS331-CV-plus-plus/assets/117832185/68a5febe-4f8e-47f8-bf47-a887bf543696
+
+
 
